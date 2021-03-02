@@ -54,7 +54,7 @@ This is included to help with understanding the operation of the other switching
 All of these examples will run on an Arduino UNO. I have in fact used a NANO and a backplane which has more ground pins available.
 There is a need for a TCRT5000 IR detector and a servo and connecting wiring.
 
-The Task scheduling examples require the library IO_Abstaction which is available from the Arduino IDE.
+The Task scheduling examples require the library IO_Abstraction which is available from the Arduino IDE.
 
 Library documentation is available from the links on the Knowledgebase.
 
