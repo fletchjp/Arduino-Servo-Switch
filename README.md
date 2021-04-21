@@ -1,3 +1,5 @@
+ <img align="right" src="arduino_merg_logo.png"  width="150" height="75">
+
 # Arduino-Servo-Switch
  
  This has the codes for the Servo examples including switching between tasks.
