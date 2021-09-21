@@ -69,7 +69,7 @@ public:
 
 void setup() {
   // put your setup code here, to run once:
-    Serial.begin(9600);
+    Serial.begin(115200);
     Serial.println("Starting the event example");
 
     // now we register the event with the task manager.
