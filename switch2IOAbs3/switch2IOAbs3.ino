@@ -171,7 +171,7 @@ CheckIRpins checkThesePins(moveup,Signal_Pin, LED_Pin);
 CheckIRpins checkThesePins2(movedown,Signal_Pin2, LED_Pin2);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("Starting the servo detector event example");
   ioDevicePinMode(arduinoPins, Signal_Pin, INPUT_PULLUP);
   ioDevicePinMode(arduinoPins, IR_Pin, OUTPUT);
