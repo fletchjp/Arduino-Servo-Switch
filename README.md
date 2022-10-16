@@ -39,6 +39,8 @@ These examples are derived from a code on the Arduino site which shows how to ma
 
  This features a more complex use of task scheduling where the movement of the servo is controlled from a task which can be switched on and off.
 
+ This is now working again (2022)
+ 
 ### switch2IOAbs3
 
 In this case there are two IR detectors and each controls the move in one of the directions.
