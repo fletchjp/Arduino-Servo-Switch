@@ -185,7 +185,7 @@ MoveServoFromTo movedown(myservo,180,0,DOWN,SERVO_PIN);
 CheckIRpins checkThesePins(moveup,Signal_Pin, LED_Pin);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("Starting the servo detector event example");
   ioDevicePinMode(arduinoPins, Signal_Pin, INPUT_PULLUP);
   ioDevicePinMode(arduinoPins, IR_Pin, OUTPUT);
