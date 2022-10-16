@@ -53,7 +53,7 @@ void moveServo()
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   myservo.attach(SERVO_PIN);  // attaches the servo on pin 9 to the servo object
   taskManager.scheduleOnce(100,moveServo);
   Serial.println("moveServo scheduled");
