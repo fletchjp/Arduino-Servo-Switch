@@ -33,13 +33,13 @@ These examples are derived from a code on the Arduino site which shows how to ma
 
  The examples are extended to include switching when a signal is received from an IR detector.
 
- switchIOAbs3
+ ### switchIOAbs3
 
  In this case there is one detector. When a signal is received the servo moves and while it is moving no further signal is processed. When the move is finished the servo returns to the start.
 
  This features a more complex use of task scheduling where the movement of the servo is controlled from a task which can be switched on and off.
 
-switch2IOAbs3
+### switch2IOAbs3
 
 In this case there are two IR detectors and each controls the move in one of the directions.
 
