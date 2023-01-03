@@ -31,6 +31,13 @@ size_t moustache_size(T (&values)[n])
   return n;
 }
 
+template <typename T, typename V, size_t n>
+void moustache_value(T (&values)[n], size_t i, const V &v)
+{
+  if (i < n) values[i].value = String(v);
+  //return n;
+}
+
 // Define the formats to be used to output of position.
 const char *position = "moveServo reaches {{pos}}";
 
@@ -65,7 +72,8 @@ void moveServo()
       }
         //Serial.print("moveServo reaches ");
         //Serial.println(pos);
-      position_value[0].value = String(pos);
+      //position_value[0].value = String(pos);
+      moustache_value(position_value,0,pos);
       Serial.println(moustache_render(position,position_value));
     }
 }
