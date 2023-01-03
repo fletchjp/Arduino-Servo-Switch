@@ -21,13 +21,27 @@
 #include <TaskManagerIO.h>
 #include <ExecWithParameter.h>
 
+#include <moustache.h>
+
+// This returns the size of a moustache_variable_t array and also of an array of arrays.
+// It can be used to control output from rendering the array of arrays
+template <typename T, size_t n>
+size_t moustache_size(T (&values)[n])
+{
+  return n;
+}
+
+// Define the formats to be used to output of position.
+const char *position = "moveServo reaches {{pos}}";
+
+
 Servo myservo;  // create servo object to control a servo
 // twelve servo objects can be created on most boards
 const byte SERVO_PIN = 9;
 
 int pos = 0;    // variable to store the servo position
 
-
+const moustache_variable_t position_value[] = { { "pos", String(pos) } };
 // This task has to coordinate the tasks and turn them on and off.
 void moveServo()
 {
