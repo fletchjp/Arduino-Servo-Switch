@@ -54,15 +54,19 @@ void moveServo()
        taskManager.yieldForMicros(15000);     
        //delay(15);                       // waits 15ms for the servo to reach the position
        }
-        Serial.print("moveServo reaches ");
-        Serial.println(pos);
-       for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+      position_value[0].value = String(pos);
+      Serial.println(moustache_render(position,position_value));
+        //Serial.print("moveServo reaches ");
+        //Serial.println(pos);
+      for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
           myservo.write(pos);              // tell servo to go to position in variable 'pos'
           taskManager.yieldForMicros(15000);     
           //delay(15);                       // waits 15ms for the servo to reach the position
-       }
-        Serial.print("moveServo reaches ");
-        Serial.println(pos);
+      }
+        //Serial.print("moveServo reaches ");
+        //Serial.println(pos);
+      position_value[0].value = String(pos);
+      Serial.println(moustache_render(position,position_value));
     }
 }
 
