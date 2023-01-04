@@ -22,21 +22,7 @@
 #include <ExecWithParameter.h>
 
 #include <moustache.h>
-
-// This returns the size of a moustache_variable_t array and also of an array of arrays.
-// It can be used to control output from rendering the array of arrays
-template <typename T, size_t n>
-size_t moustache_size(T (&values)[n])
-{
-  return n;
-}
-
-template <typename T, typename V, size_t n>
-void moustache_value(T (&values)[n], size_t i, const V &v)
-{
-  if (i < n) values[i].value = String(v);
-  //return n;
-}
+#include <moustache_code.h>
 
 // Define the formats to be used to output of position.
 const char *position = "moveServo reaches {{pos}}";
