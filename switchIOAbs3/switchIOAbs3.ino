@@ -46,12 +46,25 @@
  http://www.arduino.cc/en/Tutorial/Sweep
 */
 
+// 3rd party libraries
+#include <Streaming.h>
 #include <Servo.h>
 
 #include <IoAbstraction.h>
 #include <TaskManagerIO.h>
 #include <ExecWithParameter.h>
 //#include <TaskTypes.h>
+
+const byte VER_MAJ  = 1;
+const byte VER_MIN  = 0;
+const byte VER_DETAIL = 0;
+
+void heading()
+{
+  Serial << endl << endl << __FILE__ << endl;
+  Serial << F("Ver: ") << VER_MAJ << F(".") << VER_MIN << F(".") << VER_DETAIL;
+  Serial << F(" compiled on ") << __DATE__ << F(" at ") << __TIME__ << F(" using compiler ") << __cplusplus << endl;
+}
 
 Servo myservo;  // create servo object to control a servo
 // twelve servo objects can be created on most boards
@@ -185,7 +198,9 @@ MoveServoFromTo movedown(myservo,180,0,DOWN,SERVO_PIN);
 CheckIRpins checkThesePins(moveup,Signal_Pin, LED_Pin);
 
 void setup() {
+  while(!Serial);
   Serial.begin(115200);
+  heading();
   Serial.println("Starting the servo detector event example");
   ioDevicePinMode(arduinoPins, Signal_Pin, INPUT_PULLUP);
   ioDevicePinMode(arduinoPins, IR_Pin, OUTPUT);
