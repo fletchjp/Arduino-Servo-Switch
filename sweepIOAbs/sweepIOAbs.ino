@@ -15,11 +15,24 @@
  http://www.arduino.cc/en/Tutorial/Sweep
 */
 
+// 3rd party libraries
+#include <Streaming.h>
 #include <Servo.h>
 
 #include <IoAbstraction.h>
 #include <TaskManagerIO.h>
 #include <ExecWithParameter.h>
+
+const byte VER_MAJ  = 1;
+const byte VER_MIN  = 0;
+const byte VER_DETAIL = 0;
+
+void heading()
+{
+  Serial << endl << endl << __FILE__ << endl;
+  Serial << F("Ver: ") << VER_MAJ << F(".") << VER_MIN << F(".") << VER_DETAIL;
+  Serial << F(" compiled on ") << __DATE__ << F(" at ") << __TIME__ << F(" using compiler ") << __cplusplus << endl;
+}
 
 Servo myservo;  // create servo object to control a servo
 // twelve servo objects can be created on most boards
@@ -53,9 +66,11 @@ void moveServo()
 }
 
 void setup() {
+  while(!Serial);
   Serial.begin(115200);
+  heading();
   myservo.attach(SERVO_PIN);  // attaches the servo on pin 9 to the servo object
-  taskManager.scheduleOnce(100,moveServo);
+  taskManager.scheduleOnce(100,moveServo);  while(!Serial);
   Serial.println("moveServo scheduled");
 }
 
