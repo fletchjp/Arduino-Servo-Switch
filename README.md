@@ -22,6 +22,8 @@ These examples are derived from a code on the Arduino site which shows how to ma
  http://www.arduino.cc/en/Tutorial/Sweep
 
  This uses the hardware servo library <servo.h> which will be used throughout these examples.
+ 
+ These examples now have the heading code and version 1.0.0 unless otherwise noted.
 
  ## Sweep with scheduling
 
