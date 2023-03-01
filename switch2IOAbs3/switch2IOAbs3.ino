@@ -20,8 +20,21 @@
 // There are now so many wires there is a risk of the bare wire connections to the resistances
 // touching.
 
+// 3rd party libraries
+#include <Streaming.h>
 #include <IoAbstraction.h>
 #include <TaskManagerIO.h>
+
+const byte VER_MAJ  = 1;
+const byte VER_MIN  = 0;
+const byte VER_DETAIL = 0;
+
+void heading()
+{
+  Serial << endl << endl << __FILE__ << endl;
+  Serial << F("Ver: ") << VER_MAJ << F(".") << VER_MIN << F(".") << VER_DETAIL;
+  Serial << F(" compiled on ") << __DATE__ << F(" at ") << __TIME__ << F(" using compiler ") << __cplusplus << endl;
+}
 
 IoAbstractionRef arduinoPins = ioUsingArduino();
 
@@ -41,7 +54,6 @@ int pos = 0;    // global variable to store the servo position.
 bool eventCompleted = false;
 bool noTaskRunning = true;
 bool isMoveupNext = true; // Not currently used
-
 
 // The IR signal is pulled high and goes low when there is a detection.
 const int Signal_Pin = 5;
@@ -171,7 +183,9 @@ CheckIRpins checkThesePins(moveup,Signal_Pin, LED_Pin);
 CheckIRpins checkThesePins2(movedown,Signal_Pin2, LED_Pin2);
 
 void setup() {
+  while(!Serial);
   Serial.begin(115200);
+  heading();
   Serial.println("Starting the servo two detector event example");
   ioDevicePinMode(arduinoPins, Signal_Pin, INPUT_PULLUP);
   ioDevicePinMode(arduinoPins, IR_Pin, OUTPUT);
