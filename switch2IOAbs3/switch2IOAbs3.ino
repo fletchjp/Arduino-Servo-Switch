@@ -20,6 +20,8 @@
 // There are now so many wires there is a risk of the bare wire connections to the resistances
 // touching.
 
+// NOTE: This compiles for a UNO R3 and not for a UNO R4. There is a problem in the Servo library.
+
 // 3rd party libraries
 #include <Streaming.h>
 #include <IoAbstraction.h>
